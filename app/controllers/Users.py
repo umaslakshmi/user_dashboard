@@ -54,7 +54,7 @@ class Users(Controller):
         }
         result = self.models['User'].create_user(info)
         if result['status']:
-            if request.form['source'] == 'create':
+            if 'id' not in session:
                 session['id'] = result['user']['id']
             #redirect to user's homepage
             return redirect('/users/dashboard')
@@ -64,6 +64,7 @@ class Users(Controller):
             return redirect('/users/register')
 
     def dashboard(self):
+        print session['id']
         user = self.models['User'].get_user_by_id(session['id'])
         all_users = self.models['User'].get_users()
         return self.load_view('/users/dashboard.html', user=user, all_users=all_users)
