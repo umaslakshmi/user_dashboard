@@ -39,6 +39,7 @@ class Users(Controller):
         return self.load_view('/users/register.html')
 
     def logout(self):
+        print session['user_level']
         session.pop('id')
         session.pop('user_level')
         return redirect('/')
@@ -56,6 +57,8 @@ class Users(Controller):
         if result['status']:
             if 'id' not in session:
                 session['id'] = result['user']['id']
+                session['user_level'] = result['user']['user_level']
+                print session['user_level']
             #redirect to user's homepage
             return redirect('/users/dashboard')
         else:
