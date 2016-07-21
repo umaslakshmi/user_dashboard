@@ -54,7 +54,8 @@ class Users(Controller):
         }
         result = self.models['User'].create_user(info)
         if result['status']:
-            session['id'] = result['user']['id']
+            if request.form['source'] == 'create':
+                session['id'] = result['user']['id']
             #redirect to user's homepage
             return redirect('/users/dashboard')
         else:

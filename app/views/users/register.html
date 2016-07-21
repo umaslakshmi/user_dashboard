@@ -26,6 +26,7 @@
 			{% endwith %}
 			<h1>Register</h1>
 			<form method='post' action='/users/create'>
+				<input type='hidden' name='source' value='register'>
 				<label>Email Address:</label>
 				<input type='text' name='email'>
 				<label>First Name:</label>
