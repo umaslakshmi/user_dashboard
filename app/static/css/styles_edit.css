@@ -1,0 +1,22 @@
+ul{
+	margin-bottom: 0;
+}
+#body{
+	width: 970px;
+	margin: 0 auto;
+}
+label, input, select{
+	display: block;
+	margin-bottom: 10px;
+}
+.row{
+	margin-bottom: 20px;
+}
+#description input:first-child{
+	width: 970px;
+	height: 200px;
+}
+.col-md-5, .col-md-12{
+	border: 1px solid black;
+	padding: 5px;
+}
